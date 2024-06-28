@@ -73,3 +73,14 @@ def display_images(original, noisy, denoised):
     plt.show()
 
 display_images(image, noisy_image, denoised_image)
+# Save the denoised image to the specified folder
+output_folder = '/home/NETID/vdhaya/data/DnCNN/images'
+os.makedirs(output_folder, exist_ok=True)
+output_image_path = os.path.join(output_folder, 'denoised_image.png')
+
+tf.keras.preprocessing.image.save_img(output_image_path, denoised_image[0])
+
+display_images(image, noisy_image, denoised_image)
+#print(f"Denoised image saved to: {output_image_path}")
+
+
